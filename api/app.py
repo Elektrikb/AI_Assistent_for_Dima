@@ -5,8 +5,11 @@ import logging
 from typing import Dict
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
+from fastapi import Depends, Form
+from fastapi.security import OAuth2PasswordRequestForm
 import os
-
+from security import create_access_token, get_current_user, TokenData
+from auth.user_db import UserDatabase
 from .schemas import QuestionRequest, RecommendationResponse, SessionStatsResponse
 
 logging.basicConfig(level=logging.INFO)
@@ -19,7 +22,9 @@ class RecommendationAPI:
         self.env = env
         self.agent = agent
         self.response_generator = response_generator
-        
+        self.user_db = UserDatabase()
+        if not self.user_db.get_user("admin"):
+            self.user_db.create_user("admin", "admin")
         self.app = FastAPI(title="RL Recommendation System API")
         self.setup_middleware()
         self.setup_routes()
@@ -44,23 +49,41 @@ class RecommendationAPI:
         self.app.mount("/static", StaticFiles(directory="frontend"), name="static")
     
     def setup_routes(self):
-        """Настройка маршрутов API"""
-        
+        @self.app.post("/register")
+        async def register(form_data: OAuth2PasswordRequestForm = Depends()):
+            success = self.user_db.create_user(form_data.username, form_data.password)
+            if not success:
+                raise HTTPException(status_code=400, detail="Username already exists")
+            return {"message": "User created successfully"}
+
+        @self.app.post("/login")
+        async def login(form_data: OAuth2PasswordRequestForm = Depends()):
+            if not self.user_db.authenticate_user(form_data.username, form_data.password):
+                raise HTTPException(status_code=401, detail="Invalid credentials")
+            token = create_access_token(data={"sub": form_data.username})
+            return {"access_token": token, "token_type": "bearer"}
+
+        @self.app.get("/users")
+        async def get_all_users(current_user: TokenData = Depends(get_current_user)):
+            """Получение списка всех пользователей (только имена)"""
+            usernames = list(self.user_db.users.keys())
+            return {"users": usernames, "total": len(usernames)}
+
         @self.app.get("/")
         async def root():
             return {"message": "RL Recommendation System API", "status": "running"}
         
         @self.app.post("/ask", response_model=RecommendationResponse)
-        async def ask_question(request: QuestionRequest):
+        async def ask_question(
+            request: QuestionRequest,
+            current_user: TokenData = Depends(get_current_user)
+        ):
             """Основной endpoint для вопросов"""
             try:
+                user_id = current_user.user_id
                 # Создаем или получаем сессию
-                if not request.user_id:
-                    user_id = self.session_manager.create_session()
-                else:
-                    user_id = request.user_id
-                    if user_id not in self.session_manager.sessions:
-                        user_id = self.session_manager.create_session(user_id)
+                if user_id not in self.session_manager.sessions:
+                    self.session_manager.create_session(user_id)
                 
                 # Получаем состояние на основе вопроса
                 state = self.env.reset(request.question)
@@ -98,7 +121,13 @@ class RecommendationAPI:
                 raise HTTPException(status_code=500, detail=str(e))
         
         @self.app.get("/session/{user_id}", response_model=SessionStatsResponse)
-        async def get_session_stats(user_id: str):
+        async def get_session_stats(
+            user_id: str,
+            current_user: TokenData = Depends(get_current_user)
+        ):
+            if current_user.user_id != user_id:
+                raise HTTPException(status_code=403, detail="Access forbidden")
+
             """Получение статистики сессии"""
             stats = self.session_manager.get_session_stats(user_id)
             if not stats:

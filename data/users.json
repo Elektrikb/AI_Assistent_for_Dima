@@ -1,0 +1,14 @@
+{
+  "admin": {
+    "username": "admin",
+    "hashed_password": "$argon2id$v=19$m=65536,t=3,p=4$GsM4J4QQYkzJ2fu/11orxQ$1h+vlYcF2aVQZY4UaCsXhOaSSJn0C/sYuBI3MkbrPDk"
+  },
+  "galai": {
+    "username": "galai",
+    "hashed_password": "$argon2id$v=19$m=65536,t=3,p=4$qxXCmPOeE0IIwThnrHUu5Q$GSkwFnfPpI6RSiL057yKb5NVVo8L6bYf713IPVZ5eYA"
+  },
+  "dima": {
+    "username": "dima",
+    "hashed_password": "$argon2id$v=19$m=65536,t=3,p=4$POc8x3jv3ds7R6h1DmGMEQ$JewfWsMfsL4U1QwNnw/TxlaW0MhK3FD81SP4N74oyaU"
+  }
+}

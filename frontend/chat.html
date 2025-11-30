@@ -4,6 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI Консультант - Чат</title>
+    <div class="auth-panel" id="auth-panel" style="padding: 15px; background: #f1f5f9; border-bottom: 1px solid #e2e8f0; text-align: center; display: none;">
+        <div id="login-form">
+            <h3>Войдите, чтобы начать</h3>
+            <input type="text" id="username" placeholder="Логин" style="padding: 10px; width: 200px; margin: 5px;" />
+            <input type="password" id="password" placeholder="Пароль" style="padding: 10px; width: 200px; margin: 5px;" />
+            <button onclick="loginUser()" style="padding: 10px 20px; background: #4f46e5; color: white; border: none; cursor: pointer;">Войти</button>
+            <button onclick="registerUser()" style="padding: 10px 20px; background: #64748b; color: white; border: none; cursor: pointer; margin-left: 10px;">Регистрация</button>
+        </div>
+        <div id="logout-form" style="display: none;">
+            <h3>Вы вошли как <span id="current-username"></span></h3>
+            <button onclick="logoutUser()" style="padding: 10px 20px; background: #ef4444; color: white; border: none; cursor: pointer;">Выйти</button>
+        </div>
+    </div>
+
+
     <style>
         * {
             margin: 0;
@@ -242,6 +257,92 @@
     <script>
         const API_BASE_URL = 'http://localhost:8000';
         let currentSessionId = null;
+        let authToken = null;
+
+        window.onload = function() {
+            const token = getAuthToken();
+            if (token) {
+                // Пытаемся извлечь username из токена (просто извлекаем из localStorage)
+                const savedUsername = localStorage.getItem('currentUsername');
+                if (savedUsername) {
+                    showLogoutForm(savedUsername);
+                }
+            } else {
+                showLoginForm();
+            }
+        };
+
+        function showLoginForm() {
+            document.getElementById('auth-panel').style.display = 'block';
+            document.getElementById('login-form').style.display = 'block';
+            document.getElementById('logout-form').style.display = 'none';
+        }
+
+        function showLogoutForm(username) {
+            document.getElementById('auth-panel').style.display = 'block';
+            document.getElementById('login-form').style.display = 'none';
+            document.getElementById('logout-form').style.display = 'block';
+            document.getElementById('current-username').textContent = username;
+            document.getElementById('chat-input').focus();
+        }
+
+        function loginUser() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            if (!username || !password) return alert('Заполните поля');
+
+            fetch(`${API_BASE_URL}/login`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: `username=${username}&password=${password}`
+            })
+            .then(response => {
+                if (!response.ok) throw new Error('Ошибка входа');
+                return response.json();
+            })
+            .then(data => {
+                authToken = data.access_token;
+                localStorage.setItem('authToken', authToken);
+                localStorage.setItem('currentUsername', username);  // Сохраняем имя
+                showLogoutForm(username);
+            })
+            .catch(err => {
+                alert(err.message);
+            });
+        }
+
+        function registerUser() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            if (!username || !password) return alert('Заполните поля');
+
+            fetch(`${API_BASE_URL}/register`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: `username=${username}&password=${password}`
+            })
+            .then(response => {
+                if (!response.ok) throw new Error('Ошибка регистрации');
+                alert('Пользователь создан! Теперь войдите.');
+            })
+            .catch(err => {
+                alert(err.message);
+            });
+        }
+
+        function logoutUser() {
+            localStorage.removeItem('authToken');
+            localStorage.removeItem('currentUsername');
+            authToken = null;
+
+            // Просто перезагружаем — чат очистится сам
+            window.location.reload();
+        }
+
+        // Получение токена
+        function getAuthToken() {
+            return localStorage.getItem('authToken');
+        }
 
         // Отправка сообщения
         async function sendMessage() {
@@ -262,11 +363,9 @@
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${getAuthToken()}`
                     },
-                    body: JSON.stringify({
-                        question: message,
-                        user_id: currentSessionId
-                    })
+                    body: JSON.stringify({ question: message })
                 });
 
                 const data = await response.json();

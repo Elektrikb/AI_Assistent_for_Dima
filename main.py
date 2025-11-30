@@ -6,6 +6,7 @@ import os
 
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
+from auth.user_db import UserDatabase
 from config.settings import Config
 from database.article_db import ArticleDatabase
 from database.session_manager import SessionManager
@@ -28,6 +29,12 @@ def initialize_system():
         article_db = ArticleDatabase(config.ARTICLES_PATH, config.EXCEL_PATH)
         articles = article_db.get_all_articles()
         logger.info(f"Loaded {len(articles)} articles")
+
+        # Инициализация базы пользователей
+        user_db = UserDatabase()
+        if not user_db.get_user("admin"):
+            user_db.create_user("admin", "admin")  # демо-пользователь
+        logger.info("User database initialized")
         
         if not articles:
             logger.error("No articles available. System cannot start.")
@@ -80,6 +87,7 @@ def initialize_system():
         return {
             'config': config,
             'article_db': article_db,
+            'user_db': user_db,
             'session_manager': session_manager,
             'state_encoder': state_encoder,
             'env': env,
@@ -87,6 +95,7 @@ def initialize_system():
             'response_generator': response_generator,
             'api_class': RecommendationAPI
         }
+        
         
     except Exception as e:
         logger.error(f"Failed to initialize system: {e}")

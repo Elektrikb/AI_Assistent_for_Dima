@@ -1080,5 +1080,319 @@
     ],
     "total_reward": 0.5,
     "interaction_count": 3
+  },
+  "admin": {
+    "created_at": "2025-11-30T18:10:55.229101",
+    "updated_at": "2025-11-30T18:46:25.978212",
+    "conversation_history": [
+      {
+        "timestamp": "2025-11-30T18:10:55.231076",
+        "user_query": "Как начать программировать на Python?",
+        "recommended_article": {
+          "id": 0,
+          "title": "Как начать программировать на Python",
+          "url": "https://habr.com/ru/companies/edison/articles/474212/"
+        },
+        "reward": 0.3
+      },
+      {
+        "timestamp": "2025-11-30T18:11:06.220941",
+        "user_query": "Получить дополнительную статью по теме",
+        "recommended_article": {
+          "id": 6,
+          "title": "Введение в компьютерные сети",
+          "url": "https://habr.com/ru/articles/307252/"
+        },
+        "reward": -0.1
+      },
+      {
+        "timestamp": "2025-11-30T18:27:51.756578",
+        "user_query": "Как начать программировать на Python?",
+        "recommended_article": {
+          "id": 0,
+          "title": "Как начать программировать на Python",
+          "url": "https://habr.com/ru/companies/edison/articles/474212/"
+        },
+        "reward": 0.3
+      },
+      {
+        "timestamp": "2025-11-30T18:37:32.923962",
+        "user_query": "Как начать программировать на Python?",
+        "recommended_article": {
+          "id": 0,
+          "title": "Как начать программировать на Python",
+          "url": "https://habr.com/ru/companies/edison/articles/474212/"
+        },
+        "reward": 0.3
+      },
+      {
+        "timestamp": "2025-11-30T18:38:22.933880",
+        "user_query": "Как начать программировать на Python?",
+        "recommended_article": {
+          "id": 0,
+          "title": "Как начать программировать на Python",
+          "url": "https://habr.com/ru/companies/edison/articles/474212/"
+        },
+        "reward": 0.3
+      },
+      {
+        "timestamp": "2025-11-30T18:38:25.261223",
+        "user_query": "Что такое машинное обучение?",
+        "recommended_article": {
+          "id": 1,
+          "title": "Основы машинного обучения",
+          "url": "https://habr.com/ru/articles/448892/"
+        },
+        "reward": 0.3
+      },
+      {
+        "timestamp": "2025-11-30T18:40:14.404900",
+        "user_query": "Как начать программировать на Python?",
+        "recommended_article": {
+          "id": 0,
+          "title": "Как начать программировать на Python",
+          "url": "https://habr.com/ru/companies/edison/articles/474212/"
+        },
+        "reward": 0.3
+      },
+      {
+        "timestamp": "2025-11-30T18:40:17.783546",
+        "user_query": "Что такое машинное обучение?",
+        "recommended_article": {
+          "id": 1,
+          "title": "Основы машинного обучения",
+          "url": "https://habr.com/ru/articles/448892/"
+        },
+        "reward": 0.3
+      },
+      {
+        "timestamp": "2025-11-30T18:42:25.481416",
+        "user_query": "Как начать программировать на Python?",
+        "recommended_article": {
+          "id": 1,
+          "title": "Основы машинного обучения",
+          "url": "https://habr.com/ru/articles/448892/"
+        },
+        "reward": 0.3
+      },
+      {
+        "timestamp": "2025-11-30T18:42:26.801339",
+        "user_query": "Что такое машинное обучение?",
+        "recommended_article": {
+          "id": 1,
+          "title": "Основы машинного обучения",
+          "url": "https://habr.com/ru/articles/448892/"
+        },
+        "reward": 0.3
+      },
+      {
+        "timestamp": "2025-11-30T18:42:50.744738",
+        "user_query": "Как начать программировать на Python?",
+        "recommended_article": {
+          "id": 1,
+          "title": "Основы машинного обучения",
+          "url": "https://habr.com/ru/articles/448892/"
+        },
+        "reward": 0.3
+      },
+      {
+        "timestamp": "2025-11-30T18:42:52.012699",
+        "user_query": "Что такое машинное обучение?",
+        "recommended_article": {
+          "id": 1,
+          "title": "Основы машинного обучения",
+          "url": "https://habr.com/ru/articles/448892/"
+        },
+        "reward": 0.3
+      },
+      {
+        "timestamp": "2025-11-30T18:43:24.653545",
+        "user_query": "Как начать программировать на Python?",
+        "recommended_article": {
+          "id": 0,
+          "title": "Как начать программировать на Python",
+          "url": "https://habr.com/ru/companies/edison/articles/474212/"
+        },
+        "reward": 0.3
+      },
+      {
+        "timestamp": "2025-11-30T18:43:26.530898",
+        "user_query": "Что такое машинное обучение?",
+        "recommended_article": {
+          "id": 1,
+          "title": "Основы машинного обучения",
+          "url": "https://habr.com/ru/articles/448892/"
+        },
+        "reward": 0.3
+      },
+      {
+        "timestamp": "2025-11-30T18:43:29.558516",
+        "user_query": "Как работает Docker?",
+        "recommended_article": {
+          "id": 9,
+          "title": "Веб-разработка на Django",
+          "url": "https://habr.com/ru/articles/240463/"
+        },
+        "reward": 0.3
+      },
+      {
+        "timestamp": "2025-11-30T18:46:24.844177",
+        "user_query": "Как начать программировать на Python?",
+        "recommended_article": {
+          "id": 0,
+          "title": "Как начать программировать на Python",
+          "url": "https://habr.com/ru/companies/edison/articles/474212/"
+        },
+        "reward": 0.3
+      },
+      {
+        "timestamp": "2025-11-30T18:46:25.978204",
+        "user_query": "Что такое машинное обучение?",
+        "recommended_article": {
+          "id": 1,
+          "title": "Основы машинного обучения",
+          "url": "https://habr.com/ru/articles/448892/"
+        },
+        "reward": 0.3
+      }
+    ],
+    "total_reward": 4.699999999999998,
+    "interaction_count": 17
+  },
+  "galai": {
+    "created_at": "2025-11-30T18:24:12.220644",
+    "updated_at": "2025-11-30T18:46:42.297633",
+    "conversation_history": [
+      {
+        "timestamp": "2025-11-30T18:24:12.222528",
+        "user_query": "Как начать программировать на Python?",
+        "recommended_article": {
+          "id": 0,
+          "title": "Как начать программировать на Python",
+          "url": "https://habr.com/ru/companies/edison/articles/474212/"
+        },
+        "reward": 0.3
+      },
+      {
+        "timestamp": "2025-11-30T18:29:17.051108",
+        "user_query": "Как начать программировать на Python?",
+        "recommended_article": {
+          "id": 0,
+          "title": "Как начать программировать на Python",
+          "url": "https://habr.com/ru/companies/edison/articles/474212/"
+        },
+        "reward": 0.3
+      },
+      {
+        "timestamp": "2025-11-30T18:42:37.293981",
+        "user_query": "Как начать программировать на Python?",
+        "recommended_article": {
+          "id": 1,
+          "title": "Основы машинного обучения",
+          "url": "https://habr.com/ru/articles/448892/"
+        },
+        "reward": 0.3
+      },
+      {
+        "timestamp": "2025-11-30T18:42:38.336446",
+        "user_query": "Что такое машинное обучение?",
+        "recommended_article": {
+          "id": 1,
+          "title": "Основы машинного обучения",
+          "url": "https://habr.com/ru/articles/448892/"
+        },
+        "reward": 0.3
+      },
+      {
+        "timestamp": "2025-11-30T18:42:43.835774",
+        "user_query": "Как работает Docker?",
+        "recommended_article": {
+          "id": 1,
+          "title": "Основы машинного обучения",
+          "url": "https://habr.com/ru/articles/448892/"
+        },
+        "reward": -0.1
+      },
+      {
+        "timestamp": "2025-11-30T18:43:38.575716",
+        "user_query": "Как начать программировать на Python?",
+        "recommended_article": {
+          "id": 0,
+          "title": "Как начать программировать на Python",
+          "url": "https://habr.com/ru/companies/edison/articles/474212/"
+        },
+        "reward": 0.3
+      },
+      {
+        "timestamp": "2025-11-30T18:43:39.866537",
+        "user_query": "Что такое машинное обучение?",
+        "recommended_article": {
+          "id": 1,
+          "title": "Основы машинного обучения",
+          "url": "https://habr.com/ru/articles/448892/"
+        },
+        "reward": 0.3
+      },
+      {
+        "timestamp": "2025-11-30T18:43:41.695529",
+        "user_query": "Как работает Docker?",
+        "recommended_article": {
+          "id": 9,
+          "title": "Веб-разработка на Django",
+          "url": "https://habr.com/ru/articles/240463/"
+        },
+        "reward": 0.3
+      },
+      {
+        "timestamp": "2025-11-30T18:46:41.137878",
+        "user_query": "Как начать программировать на Python?",
+        "recommended_article": {
+          "id": 0,
+          "title": "Как начать программировать на Python",
+          "url": "https://habr.com/ru/companies/edison/articles/474212/"
+        },
+        "reward": 0.3
+      },
+      {
+        "timestamp": "2025-11-30T18:46:42.297626",
+        "user_query": "Что такое машинное обучение?",
+        "recommended_article": {
+          "id": 1,
+          "title": "Основы машинного обучения",
+          "url": "https://habr.com/ru/articles/448892/"
+        },
+        "reward": 0.3
+      }
+    ],
+    "total_reward": 2.5999999999999996,
+    "interaction_count": 10
+  },
+  "dima": {
+    "created_at": "2025-11-30T18:47:15.246602",
+    "updated_at": "2025-11-30T18:47:15.836333",
+    "conversation_history": [
+      {
+        "timestamp": "2025-11-30T18:47:15.262992",
+        "user_query": "Как начать программировать на Python?",
+        "recommended_article": {
+          "id": 0,
+          "title": "Как начать программировать на Python",
+          "url": "https://habr.com/ru/companies/edison/articles/474212/"
+        },
+        "reward": 0.3
+      },
+      {
+        "timestamp": "2025-11-30T18:47:15.836327",
+        "user_query": "Что такое машинное обучение?",
+        "recommended_article": {
+          "id": 1,
+          "title": "Основы машинного обучения",
+          "url": "https://habr.com/ru/articles/448892/"
+        },
+        "reward": 0.3
+      }
+    ],
+    "total_reward": 0.6,
+    "interaction_count": 2
   }
 }
