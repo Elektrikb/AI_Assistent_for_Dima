@@ -110,27 +110,28 @@ python test_system.py
 
 ## 10. Дополнительные ресурсы и ссылки
 [FastAPI Documentation](https://fastapi-tutorial.readthedocs.io/en/latest/)  
-[MDN Web Docs (HTML/CSS/JS)](https://developer.mozilla.org/ru/)
-[JWT Introduction](https://www.jwt.io/introduction#what-is-json-web-token)
+[MDN Web Docs (HTML/CSS/JS)](https://developer.mozilla.org/ru/)  
+[JWT Introduction](https://www.jwt.io/introduction#what-is-json-web-token)  
 [Argon2 for Password Hashing](https://argon2-cffi.readthedocs.io/en/stable/howto.html)
 
 ## 11. Версионирование и изменения
 
-Используется Git для контроля версий.
+Используется Git для контроля версий.  
 Рекомендуется вести CHANGELOG.md.
 
 ## 12. Расширяемость и дальнейшее развитие
-Потенциальные улучшения
-✅ Поддержка темы (светлая/тёмная) — через localStorage
-✅ История чата — сохранение в localStorage или сервер
-✅ Админ-панель — просмотр пользователей, статей
-✅ Голосовой ввод — Web Speech API
-✅ WebSocket — для асинхронных уведомлений
-✅ PWA — чтобы работало как приложение
-Интеграция с другими проектами
-Общая база данных (SQLite/PostgreSQL)
-Общая авторизация
+Потенциальные улучшения  
+✅ Поддержка темы (светлая/тёмная) — через localStorage  
+✅ История чата — сохранение в localStorage или сервер  
+✅ Админ-панель — просмотр пользователей, статей  
+✅ Голосовой ввод — Web Speech API  
+✅ WebSocket — для асинхронных уведомлений  
+✅ PWA — чтобы работало как приложение  
+Интеграция с другими проектами  
+Общая база данных (SQLite/PostgreSQL)  
+Общая авторизация  
 Обмен статьями и вопросами
+
 
 
 
