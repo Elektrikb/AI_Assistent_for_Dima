@@ -45,7 +45,7 @@
 - Производительность: быстрый отклик при генерации ответа.
 ## 3. Архитектура проекта
 Проект построен по модульной архитектуре:
-
+```
 Frontend (HTML/JS)  
         ↓  
 FastAPI (Backend)  
@@ -54,7 +54,7 @@ FastAPI (Backend)
  ↓            ↓           ↓  
 Session    Article     Environment  
 Manager      DB       (State/Action)  
-
+```
 ### 3.1. Компоненты:
 
 - Frontend — веб-интерфейс на чистом HTML/JS.
