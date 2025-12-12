@@ -46,14 +46,14 @@
 ## 3. Архитектура проекта
 Проект построен по модульной архитектуре:
 
-Frontend (HTML/JS)
-        ↓
-FastAPI (Backend)
-        ↓
- RL Agent (DQN)
- ↓            ↓           ↓
-Session    Article     Environment
-Manager      DB       (State/Action)
+Frontend (HTML/JS)  
+        ↓  
+FastAPI (Backend)  
+        ↓  
+ RL Agent (DQN)  
+ ↓            ↓           ↓  
+Session    Article     Environment  
+Manager      DB       (State/Action)  
 
 ### 3.1. Компоненты:
 
